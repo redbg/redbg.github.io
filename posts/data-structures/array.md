@@ -33,11 +33,14 @@ namespace softsec
         using reverse_iterator = std::reverse_iterator<iterator>;
         using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
-        // ============================== No explicit construct/copy/destroy for aggregate type ==============================
+        // ========== No explicit construct/copy/destroy for aggregate type ==========
 
         constexpr void fill(const T& value) { std::fill_n(data(), N, value); }
 
-        constexpr void swap(array& other) noexcept(std::_Is_nothrow_swappable<T>::value) { std::_Swap_ranges_unchecked(data(), data() + N, other.data()); }
+        constexpr void swap(array& other) noexcept(std::_Is_nothrow_swappable<T>::value)
+        {
+            std::_Swap_ranges_unchecked(data(), data() + N, other.data());
+        }
 
         // ============================== iterators ==============================
         [[nodiscard]] constexpr iterator begin() noexcept { return iterator(data()); }
@@ -64,8 +67,8 @@ namespace softsec
         // ============================== element access ==============================
 
         // operator[]
-        [[nodiscard]] constexpr reference operator[](_In_range_(0, N - 1) size_type n) noexcept { return elems[n]; }
-        [[nodiscard]] constexpr const_reference operator[](_In_range_(0, N - 1) size_type n) const noexcept { return elems[n]; }
+        [[nodiscard]] constexpr reference operator[](size_type n) noexcept { return elems[n]; }
+        [[nodiscard]] constexpr const_reference operator[](size_type n) const noexcept { return elems[n]; }
 
         // at()
         [[nodiscard]] constexpr reference at(size_type n)
