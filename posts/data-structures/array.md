@@ -20,11 +20,11 @@ namespace softsec
         using size_type = size_t;
         using difference_type = ptrdiff_t;
         // pointer
-        using pointer = T*;
-        using const_pointer = const T*;
+        using pointer = value_type*;
+        using const_pointer = const value_type*;
         // reference
-        using reference = T&;
-        using const_reference = const T&;
+        using reference = value_type&;
+        using const_reference = const value_type&;
 
         // iterator
         using iterator = pointer;
@@ -35,9 +35,15 @@ namespace softsec
 
         // ========== No explicit construct/copy/destroy for aggregate type ==========
 
-        constexpr void fill(const T& value) { std::fill_n(data(), N, value); }
+        constexpr void fill(const value_type& value)
+        {
+            for (size_type i = 0; i < N; i++)
+            {
+                elems[i] = value;
+            }
+        }
 
-        constexpr void swap(array& other) noexcept(std::_Is_nothrow_swappable<T>::value)
+        constexpr void swap(array& other) noexcept(std::_Is_nothrow_swappable<value_type>::value)
         {
             std::_Swap_ranges_unchecked(data(), data() + N, other.data());
         }
@@ -92,11 +98,11 @@ namespace softsec
         [[nodiscard]] constexpr const_reference back() const noexcept { return elems[N - 1]; }
 
         // data()
-        [[nodiscard]] constexpr T* data() noexcept { return elems; }
-        [[nodiscard]] constexpr const T* data() const noexcept { return elems; }
+        [[nodiscard]] constexpr pointer data() noexcept { return elems; }
+        [[nodiscard]] constexpr const const_pointer data() const noexcept { return elems; }
 
         // Elements
-        T elems[N];
+        value_type elems[N];
     };
 }
 ```
