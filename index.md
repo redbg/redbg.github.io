@@ -32,6 +32,7 @@ title: Home
 ## Data Structures
 
 - [Array](/posts/data-structures/array.md)
+- [Stack](/posts/data-structures/stack.md)
 - [Linked List](/posts/data-structures/linked-list.md)
 
 ## Algorithms
