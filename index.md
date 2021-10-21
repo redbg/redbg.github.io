@@ -12,6 +12,7 @@ title: Home
 - [C](https://docs.microsoft.com/zh-cn/cpp/c-language/)
 - [C++](https://docs.microsoft.com/zh-cn/cpp/cpp/)
 - [MASM](https://docs.microsoft.com/zh-cn/cpp/intrinsics/)
+- [Rust](https://www.rust-lang.org/)
 - [Go](https://golang.org/)
 - [Python](https://www.python.org/)
 - [Ruby](https://www.ruby-lang.org/)
