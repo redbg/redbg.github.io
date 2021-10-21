@@ -37,18 +37,17 @@ namespace softsec
 
         constexpr void fill(const value_type& value)
         {
-            for (size_type i = 0; i < N; i++)
-            {
-                elems[i] = value;
-            }
+            std::fill_n(data(), N, value);
         }
 
-        constexpr void swap(array& other) noexcept(std::_Is_nothrow_swappable<value_type>::value)
+        // C++17
+        constexpr void swap(array& other) noexcept(std::is_nothrow_swappable_v<value_type>)
         {
-            std::_Swap_ranges_unchecked(data(), data() + N, other.data());
+            std::swap_ranges(begin(), end(), other.data());
         }
 
         // ============================== iterators ==============================
+
         [[nodiscard]] constexpr iterator begin() noexcept { return iterator(data()); }
         [[nodiscard]] constexpr const_iterator begin() const noexcept { return const_iterator(data()); }
         [[nodiscard]] constexpr iterator end() noexcept { return iterator(data() + N); }
