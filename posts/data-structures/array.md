@@ -35,7 +35,7 @@ namespace softsec
 
         // ========== No explicit construct/copy/destroy for aggregate type ==========
 
-        constexpr void fill(const value_type& value)
+        constexpr void fill(const reference value)
         {
             std::fill_n(data(), N, value);
         }
@@ -102,6 +102,45 @@ namespace softsec
 
         // Elements
         value_type elems[N];
+    };
+}
+```
+
+## softsec::allocator
+
+```cpp
+namespace softsec
+{
+    template <class T>
+    class allocator
+    {
+    public:
+        // type
+        using value_type = T;
+        using size_type = size_t;
+        using difference_type = ptrdiff_t;
+
+        using propagate_on_container_move_assignment = std::true_type;
+
+        // allocator()
+        constexpr allocator() noexcept = default;
+
+        constexpr allocator(const allocator&) noexcept = default;
+
+        template <class U>
+        constexpr allocator(const allocator<U>&) noexcept {}
+
+        // allocate()
+        [[nodiscard]] constexpr T* allocate(const size_t n)
+        {
+            return static_cast<T*>(operator new(n * sizeof(T)));
+        }
+
+        // deallocate()
+        constexpr void deallocate(T* const p, const size_t n) noexcept
+        {
+            operator delete(p);
+        }
     };
 }
 ```
