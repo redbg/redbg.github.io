@@ -4,17 +4,9 @@ title: C++
 date: 2021-10-30
 ---
 
-## Comments
+## 5 Lexical conventions
 
-```cpp
-// Single-line Comments
-
-/*
-    Multi-line Comments
-*/
-```
-
-## Alternative tokens
+### 5.5 Alternative tokens
 
 ```text
 +----------+-------+
@@ -38,7 +30,17 @@ date: 2021-10-30
 +----------+-------+
 ```
 
-## Literals
+### 5.7 Comments
+
+```cpp
+// Single-line Comments
+
+/*
+    Multi-line Comments
+*/
+```
+
+### 5.13 Literals
 
 ```cpp
 #include <string>
