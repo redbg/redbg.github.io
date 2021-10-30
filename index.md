@@ -3,14 +3,14 @@ layout: default
 title: Home
 ---
 
-## VCS
+## Version Control Systems
 
-- [Git](/posts/vcs/git.md)
+- [Git](/posts/version-control-systems/git.md)
 
 ## Programming Languages
 
 - [C](https://docs.microsoft.com/zh-cn/cpp/c-language/)
-- [C++](https://docs.microsoft.com/zh-cn/cpp/cpp/)
+- [C++](/posts/programming-languages/cpp/cpp.md)
 - [MASM](https://docs.microsoft.com/zh-cn/cpp/intrinsics/)
 - [Rust](https://www.rust-lang.org/)
 - [Go](https://golang.org/)
