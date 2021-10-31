@@ -49,7 +49,7 @@ using namespace std::string_literals;
 
 int main()
 {
-    // Integer
+    // 5.13.2 Integer
     int  binary  = 0b10  or 0B10;
     int  octal   = 0123  or 01'000'000;
     int  decimal = 123   or 1'000'000;
@@ -62,26 +62,18 @@ int main()
     unsigned long      ul  = 123ul  or 123UL;
     unsigned long long ull = 123ull or 123ULL;
 
-    // Floating-point
-    float  f = 123.0f or 123.f;
-    double d = 123.0  or 123.;
-
-    // Boolean
-    bool b = true or false;
-
-    // Pointer
-    void* p = nullptr;
-
-    // Character
+    // 5.13.3 Character
     char     c0 =   'A';          // ASCII
-    char8_t  c1 = u8'\101';       // UTF-8
-    wchar_t  c2 =  L'\x41';       // wide-character
+    wchar_t  c1 =  L'\101';       // wide-character
+    char8_t  c2 = u8'\x41';       // UTF-8
     char16_t c3 =  u'\u0041';     // UTF-16
     char32_t c4 =  U'\U00000041'; // UTF-32
 
     // Multicharacter
-    int m = 'abcd';
+    int c5 = 'abcd';
 
+    //    +------------------------+
+    //    |    Escape sequences    |
     //    +------------------------+
     //    | \n   | new-line        |
     //    | \t   | horizontal tab  |
@@ -99,13 +91,26 @@ int main()
     //    | \377 | octal number    |
     //    | \xFF | hex number      |
     //    +------------------------+
-    //    |universal-character-name|
+    // 
+    //     universal-character-name
     //    +------------------------+
-    //    | \u4F60     \u597D      |
-    //    | \U00004F60 \U0000597D  |
+    //    | \u4F60      \u597D     |
+    //    | \U00004F60  \U0000597D |
     //    +------------------------+
 
-    // String
+    // 5.13.4 Floating-point
+    double      d  = 123.0  or 123.;
+    float       f  = 123.0f or 123.F;
+    long double ld = 123.0l or 123.L;
+
+    //     floating-point-suffix
+    //    +----------------------+
+    //    | none   | double      |
+    //    | f or F | float       |
+    //    | l or L | long double |
+    //    +----------------------+
+
+    // 5.13.5 String
     const char*     s0 =   "hello";
     const char8_t*  s1 = u8"hello";
     const wchar_t*  s2 =  L"hello";
@@ -129,6 +134,12 @@ int main()
     std::wstring    S7 =  LR"("Hello \ world")"s;
     std::u16string  S8 =  uR"("Hello \ world")"s;
     std::u32string  S9 =  UR"("Hello \ world")"s;
+
+    // 5.13.6 Boolean
+    bool b = true or false;
+
+    // 5.13.7 Pointer
+    void* p = nullptr;
 
     return 0;
 }
