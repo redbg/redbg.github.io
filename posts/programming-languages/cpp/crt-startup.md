@@ -11,8 +11,8 @@ __scrt_common_main();
     __security_init_cookie();
     __scrt_common_main_seh();
         __scrt_initialize_crt(__scrt_module_type::exe);
-        _initterm_e(__xi_a, __xi_z);
-        _initterm(__xc_a, __xc_z);
+        _initterm_e(__xi_a, __xi_z); // C
+        _initterm(__xc_a, __xc_z);   // C++
         tls_init_callback = __scrt_get_dyn_tls_init_callback();
             (*tls_init_callback)(nullptr, DLL_THREAD_ATTACH, nullptr);
         tls_dtor_callback = __scrt_get_dyn_tls_dtor_callback();
@@ -354,5 +354,44 @@ static __forceinline int __cdecl __scrt_common_main()
     __security_init_cookie();
 
     return __scrt_common_main_seh();
+}
+```
+
+## Linker features for initialization
+
+```cpp
+#include <stdio.h>
+
+#pragma section(".CRT$XCA", read)
+#pragma section(".CRT$XCU", read)
+
+int fun()
+{
+    printf("fun()\n");
+    return 123;
+}
+
+// .CRT$XCU
+int i = fun();
+
+void XCA()
+{
+    printf("XCA()\n");
+}
+
+void XCU()
+{
+    printf("XCU()\n");
+}
+
+__declspec(allocate(".CRT$XCA")) void* i1 = (void*)XCA;
+
+__declspec(allocate(".CRT$XCU")) void* i2 = (void*)XCU;
+
+int main()
+{
+    printf("%p\n", &i1);
+    printf("%p\n", &i2);
+    return 0;
 }
 ```
