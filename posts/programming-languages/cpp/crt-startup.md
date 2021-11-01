@@ -357,7 +357,7 @@ static __forceinline int __cdecl __scrt_common_main()
 }
 ```
 
-## Linker features for initialization
+### Linker features for initialization
 
 ```cpp
 #include <stdio.h>
