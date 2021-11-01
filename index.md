@@ -11,6 +11,7 @@ title: Home
 
 - [C](https://docs.microsoft.com/zh-cn/cpp/c-language/)
 - [C++](/posts/programming-languages/cpp/cpp.md)
+  - [CRT Startup](/posts/programming-languages/cpp/crt-startup.md)
 - [MASM](https://docs.microsoft.com/zh-cn/cpp/intrinsics/)
 - [Rust](https://www.rust-lang.org/)
 - [Go](https://golang.org/)
