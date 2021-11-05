@@ -9,8 +9,8 @@ title: Home
 
 ## Programming Languages
 
-- [C](http://www.open-std.org/JTC1/SC22/WG14/)
-- [C++](http://www.open-std.org/JTC1/SC22/WG21/)
+- [C](https://en.cppreference.com/w/c)
+- [C++](https://en.cppreference.com/w/cpp)
 - [MASM](https://docs.microsoft.com/zh-cn/cpp/intrinsics/)
 - [Rust](https://www.rust-lang.org/)
 - [Go](https://golang.org/)
