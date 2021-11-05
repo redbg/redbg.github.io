@@ -10,8 +10,7 @@ title: Home
 ## Programming Languages
 
 - [C](https://docs.microsoft.com/zh-cn/cpp/c-language/)
-- [C++](/posts/programming-languages/cpp/cpp.md)
-  - [CRT Startup](/posts/programming-languages/cpp/crt-startup.md)
+- [C++](http://www.open-std.org/JTC1/SC22/WG21/)
 - [MASM](https://docs.microsoft.com/zh-cn/cpp/intrinsics/)
 - [Rust](https://www.rust-lang.org/)
 - [Go](https://golang.org/)
