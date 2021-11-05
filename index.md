@@ -9,7 +9,7 @@ title: Home
 
 ## Programming Languages
 
-- [C](https://docs.microsoft.com/zh-cn/cpp/c-language/)
+- [C](http://www.open-std.org/JTC1/SC22/WG14/)
 - [C++](http://www.open-std.org/JTC1/SC22/WG21/)
 - [MASM](https://docs.microsoft.com/zh-cn/cpp/intrinsics/)
 - [Rust](https://www.rust-lang.org/)
